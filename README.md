@@ -3,9 +3,14 @@
 ##Come compilare le librerie bluetooth
 
 1. Scaricare e l'android NDK e scompattarlo da qualsiasi parte, il path che conduce al contenuto della cartella (qualcosa tipo `/user/xxx/android-ndk-r10d/`) sarà usato nei prossimi step.
+
 2. Collegare il telefono in debug via usb ed eseguire da terminale il comando `adb pull /system/lib/libbluetooth.so`
+
 3. Copiare il file libbluetooth.so scaricato (viene salvato nella directory dove viene lanciato il comando al punto 2) in `android-ndk-xx/platforms/android-4/arch-arm/usr/lib`
-4. Seguire le istruzioni:
+
+4. Nel file `jni/Application.mk` modificare il parametro `APP_PROJECT_PATH` in maniera tale che punti alla directory dove è presente la cartella `jni`. In altre parole, la parte finale del path è sempre `/androhid-read-only`, si deve modificare la parte iniziale sostituendo `~/androhid` con la directory radice del repository git (ex: `/home/vladimiro/programmazione/chimera/android-read-only`)
+
+5. Seguire le istruzioni:
 
 Now you must get the header files for the bluetooth and cutils includes. You can download them from the following two repositories from the CyanogenMod project:
 
@@ -16,4 +21,5 @@ Then copy the directory lib/bluetooth from the Android BlueZ code and the direct
 
 >platforms/android-4/arch-arm/usr/include/
 
-5. Ora funziona!
+
+
