@@ -23,6 +23,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE    := androhid
 LOCAL_SRC_FILES :=  hidserv.c hidserv.h sdp.h sdp.c androhid.c
+#LOCAL_C_INCLUDES := $(AOSP_ROOT)/external/bluetooth/bluez/lib
 
 LOCAL_LDLIBS := -L$(SYSTEMROOT)/usr/lib -lbluetooth
 LOCAL_DEFAULT_CPP_EXTENSION := cpp

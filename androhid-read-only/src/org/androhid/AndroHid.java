@@ -88,8 +88,8 @@ public class AndroHid extends TabActivity {
         		remoteHidDeviceAddress );
         
         // Setup the tabs
-        setupPlayerTab();
-        setupVideoTab();
+        //setupPlayerTab();
+       // setupVideoTab();
         setupPresenterTab();
         
         // Show the Copyright dialog the first time the application executes
