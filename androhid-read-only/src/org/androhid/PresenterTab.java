@@ -32,19 +32,19 @@ public class PresenterTab extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.presenter_tab);
         
-        findViewById(R.id.one).setOnClickListener(this);
+       /* findViewById(R.id.one).setOnClickListener(this);
         findViewById(R.id.two).setOnClickListener(this);
         findViewById(R.id.three).setOnClickListener(this);
         findViewById(R.id.four).setOnClickListener(this);
         findViewById(R.id.five).setOnClickListener(this);
         findViewById(R.id.six).setOnClickListener(this);
-        findViewById(R.id.seven).setOnClickListener(this);
+        findViewById(R.id.seven).setOnClickListener(this);*/
         findViewById(R.id.eight).setOnClickListener(this);
-        findViewById(R.id.nine).setOnClickListener(this);
+      /*  findViewById(R.id.nine).setOnClickListener(this);
         findViewById(R.id.ten).setOnClickListener(this);
         findViewById(R.id.eleven).setOnClickListener(this);
         findViewById(R.id.twelve).setOnClickListener(this);
-        
+    */
 	}
     
 	@Override
@@ -60,42 +60,11 @@ public class PresenterTab extends Activity implements OnClickListener {
       
     public final void onClick( final View v ){
     	switch (v.getId()){
-    	case R.id.one:
-    		this.pressButtonOne();
-    		return;
-    	case R.id.two:
-    		this.pressButtonTwo();
-    		return;
-    	case R.id.three:
-    		this.pressButtonThree();
-    		return;
-    	case R.id.four:
-    		this.pressButtonFour();
-    		return;
-    	case R.id.five:
-    		this.pressButtonFive();
-    		return;
-    	case R.id.six:
-    		this.pressButtonSix();
-    		return;
-    	case R.id.seven:
-    		this.pressButtonSeven();
-    		return;
+
     	case R.id.eight:
     		this.pressButtonEight();
     		return;
-    	case R.id.nine:
-    		this.pressButtonNine();
-    		return;
-    	case R.id.ten:
-    		this.pressButtonTen();
-    		return;
-    	case R.id.eleven:
-    		this.pressButtonEleven();
-    		return;
-    	case R.id.twelve:
-    		this.pressButtonTwelve();
-    		return;
+
     	default:
     		return;
     	}
