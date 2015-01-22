@@ -28,3 +28,6 @@ proguard/
 
 # Log Files
 *.log
+
+# Application.mk to point to local directory
+androhid-read-only/jni/Application.ml
