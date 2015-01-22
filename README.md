@@ -8,7 +8,7 @@
 
 3. Copiare il file libbluetooth.so scaricato (viene salvato nella directory dove viene lanciato il comando al punto 2) in `android-ndk-xx/platforms/android-4/arch-arm/usr/lib`
 
-4. Nel file `jni/Application.mk` modificare il parametro `APP_PROJECT_PATH` in maniera tale che punti alla directory dove è presente la cartella `jni`. In altre parole, la parte finale del path è sempre `/androhid-read-only`, si deve modificare la parte iniziale sostituendo `~/androhid` con la directory radice del repository git (ex: `/home/vladimiro/programmazione/chimera/android-read-only`)
+4. Nel file `jni/Application.mk` modificare il parametro `APP_PROJECT_PATH` in maniera tale che punti alla directory dove è presente la cartella `jni`. In altre parole, la parte finale del path è sempre `/androhid-read-only`, si deve modificare la parte iniziale sostituendo `~/androhid` con la directory radice del repository git (ex: `/home/vladimiro/programmazione/chimera/android-read-only`). Successivamente aprire un terminale e digitare il comando `git update-index --assume-unchanged androhid-read-only/jni/Application.mk` per fare in modo che git ignori le modifiche locali al file.
 
 5. Seguire le istruzioni:
 
