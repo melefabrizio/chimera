@@ -22,6 +22,7 @@ package org.androhid;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -61,7 +62,7 @@ public class BtDevicePicker extends ListActivity {
 	BtDeviceScan btDeviceScan = new BtDeviceScan();
    
     Thread threadScanningDevices = new Thread(btDeviceScan);
-    
+
     private Context myContext;
     
     /** Called when the activity is first created. */
@@ -71,6 +72,7 @@ public class BtDevicePicker extends ListActivity {
         
         // Set Context to variable
         myContext = this;
+
         
         // Disable screen rotation
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);

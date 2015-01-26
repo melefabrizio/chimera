@@ -43,8 +43,9 @@ import android.util.Log;
 public class AndroHid extends Activity implements View.OnClickListener {
     /** Called when the activity is first created. */
 	public final static String TAG = "AndroHid";
-	
-	//This is the bt mac address we associate to
+    private static final int PICK_ADDRESS = 123;
+
+    //This is the bt mac address we associate to
 	public static String remoteHidDeviceAddress = "00:00:00:00:00:00";
 		
 	public static NativeBtHid  btInterface;
@@ -277,7 +278,7 @@ public class AndroHid extends Activity implements View.OnClickListener {
         case R.id.SEARCH_DEVICE:
         	if ( btInterface.isEnabled() ){
         		Intent btDevicePickerIntent = new Intent( this.getBaseContext(), BtDevicePicker.class);
-        		startActivityForResult( btDevicePickerIntent, 0);
+        		startActivityForResult( btDevicePickerIntent, PICK_ADDRESS);
         	} else {
             	showToast( getString( R.string.bluetooth_not_enabled ) );
             }
@@ -362,5 +363,13 @@ public class AndroHid extends Activity implements View.OnClickListener {
             checkedPrefInteger = defaultValue;
         }
         return checkedPrefInteger;
+    }
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        if (requestCode == PICK_ADDRESS) {
+            if (resultCode == RESULT_OK) {
+                connect();
+            }
+        }
     }
 }
