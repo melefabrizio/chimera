@@ -19,6 +19,7 @@
 
 package org.androhid;
 
+import android.app.Activity;
 import android.app.TabActivity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -34,11 +35,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.TabHost;
 import android.widget.Toast;
 import android.util.Log;
 
-public class AndroHid extends TabActivity {
+public class AndroHid extends Activity implements View.OnClickListener {
     /** Called when the activity is first created. */
 	public final static String TAG = "AndroHid";
 	
@@ -68,9 +70,8 @@ public class AndroHid extends TabActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.presenter_tab);
                 
-        mTabHost = getTabHost();	// The activity TabHost
         mRes = getResources();		// Resource object to get Drawables
 
         // Initiate static instances of widely used classes 
@@ -90,8 +91,10 @@ public class AndroHid extends TabActivity {
         // Setup the tabs
         //setupPlayerTab();
        // setupVideoTab();
-        setupPresenterTab();
-        
+        //setupPresenterTab();
+        findViewById(R.id.eight).setOnClickListener(this);
+
+
         // Show the Copyright dialog the first time the application executes
         if ( myPreferences.getBoolean("SHOW_COPYRIGHT_DIALOG", true)){
         	showCopyrightDialog();
@@ -133,8 +136,7 @@ public class AndroHid extends TabActivity {
 		}
 		else {//showToast("No wake Lock");
 			}
-		// Restore active tab state
-		mTabHost.setCurrentTab(currentTab);
+
     }
  
     @Override
@@ -150,7 +152,6 @@ public class AndroHid extends TabActivity {
 	    	}
     	}
     	// Save current tab
-    	currentTab = mTabHost.getCurrentTab();
     }
     protected void onStop(){
     	super.onStop();
@@ -332,4 +333,34 @@ public class AndroHid extends TabActivity {
 			Log.e(TAG, e.getMessage(), e);
 		}
 	}
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+
+            case R.id.eight:
+                this.pressButtonEight();
+                return;
+
+            default:
+                return;
+        }
+    }
+    public void pressButtonEight(){
+        AndroHid.btInterface.sendKeyDownEvent(
+                getIntegerFromPreferences("SETTINGS_TAB_PRESENTER_BUTTON_8_MODIFIER", 0),
+                getIntegerFromPreferences("SETTINGS_TAB_PRESENTER_BUTTON_8_KEYCODE", 0));
+        AndroHid.btInterface.sendKeyUpEvent();
+    }
+    public int getIntegerFromPreferences(String key, int defaultValue){
+        int checkedPrefInteger = 0;
+        // Check User Input Strings
+        try {
+            checkedPrefInteger = Integer.parseInt(
+                    AndroHid.myPreferences.getString(key, Integer.toString(defaultValue)));
+        } catch (Exception e) {
+            checkedPrefInteger = defaultValue;
+        }
+        return checkedPrefInteger;
+    }
 }

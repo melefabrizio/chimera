@@ -29,8 +29,8 @@
         android:layout_gravity="center"
         android:gravity="center_horizontal">
         <ImageButton
-            android:layout_width="150dp"
-            android:layout_height="80dp"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
             android:src="@android:drawable/ic_menu_camera"
             android:id="@+id/eight"
             android:layout_gravity="center"/>
