@@ -17,7 +17,7 @@
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.androhid;
+package org.chimera;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -28,6 +28,8 @@ import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.util.Log;
+
+import org.chimera.R;
 
 public class Preferences extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener { 
 	@Override 

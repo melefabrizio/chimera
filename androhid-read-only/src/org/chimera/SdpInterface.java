@@ -17,7 +17,7 @@
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.androhid;
+package org.chimera;
 
 //import java.io.DataInputStream;
 import java.io.DataOutputStream;

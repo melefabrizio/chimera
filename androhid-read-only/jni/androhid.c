@@ -29,7 +29,7 @@
  * Method:    setupClient
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_org_androhid_NativeBtHid_setupClientSocket
+JNIEXPORT jint JNICALL Java_org_chimera_NativeBtHid_setupClientSocket
   (JNIEnv *env , jobject obj) {
 	if( hci_get_route(NULL)  < 0 ){
 		return -1;
@@ -50,7 +50,7 @@ JNIEXPORT jint JNICALL Java_org_androhid_NativeBtHid_setupClientSocket
  * Method:    connectToHost
  * Signature: (Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_org_androhid_NativeBtHid_connectToHost
+JNIEXPORT jint JNICALL Java_org_chimera_NativeBtHid_connectToHost
   (JNIEnv *env , jobject obj, jstring BtAddress) {
     const char *buffer = (*env)->GetStringUTFChars(env, BtAddress, 0);
     int returnValue = 0;
@@ -71,7 +71,7 @@ JNIEXPORT jint JNICALL Java_org_androhid_NativeBtHid_connectToHost
  * Method:    deconnectClient
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_org_androhid_NativeBtHid_deconnectClient
+JNIEXPORT jint JNICALL Java_org_chimera_NativeBtHid_deconnectClient
   (JNIEnv *env, jobject obj) {
 	// Remove the HID service from sdp server
 	//sdp_remove();
@@ -88,7 +88,7 @@ JNIEXPORT jint JNICALL Java_org_androhid_NativeBtHid_deconnectClient
  * Method:    sendKeyDownEvent
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_org_androhid_NativeBtHid_sendKeyDownEvent
+JNIEXPORT jint JNICALL Java_org_chimera_NativeBtHid_sendKeyDownEvent
   (JNIEnv *env, jobject obj, jint modifier, jint keyValue) {
  	return send_key_down(modifier, keyValue);
   }
@@ -98,7 +98,7 @@ JNIEXPORT jint JNICALL Java_org_androhid_NativeBtHid_sendKeyDownEvent
  * Method:    sendKeyUpEvent
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_org_androhid_NativeBtHid_sendKeyUpEvent
+JNIEXPORT jint JNICALL Java_org_chimera_NativeBtHid_sendKeyUpEvent
   (JNIEnv *env, jobject obj) {
 	return send_key_up();
   }
@@ -107,7 +107,7 @@ JNIEXPORT jint JNICALL Java_org_androhid_NativeBtHid_sendKeyUpEvent
  * Method:    sendMouseEvent
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_org_androhid_NativeBtHid_sendMouseEvent
+JNIEXPORT jint JNICALL Java_org_chimera_NativeBtHid_sendMouseEvent
   (JNIEnv *env, jobject obj, jint btn, jint mov_x, jint mov_y, jint whell) {
 	return send_mouse_event( btn, mov_x, mov_y, whell);
   }
@@ -117,7 +117,7 @@ JNIEXPORT jint JNICALL Java_org_androhid_NativeBtHid_sendMouseEvent
  * Method:    btDeviceScan
  * Signature: ()[Ljava/lang/String;
  */
-JNIEXPORT jobjectArray JNICALL Java_org_androhid_NativeBtHid_btDeviceScan
+JNIEXPORT jobjectArray JNICALL Java_org_chimera_NativeBtHid_btDeviceScan
   (JNIEnv *env, jobject obj) {
   inquiry_info *ii = NULL;
   int max_rsp = 255;
@@ -161,7 +161,7 @@ JNIEXPORT jobjectArray JNICALL Java_org_androhid_NativeBtHid_btDeviceScan
  * Method:    btDeviceGetName
  * Signature: (Ljava/lang/String;)Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_org_androhid_NativeBtHid_btDeviceGetName
+JNIEXPORT jstring JNICALL Java_org_chimera_NativeBtHid_btDeviceGetName
 	( JNIEnv *env, jobject obj, jstring btAddressString ) {
 	const char *buffer = (*env)->GetStringUTFChars( env, btAddressString, 0 );
 	bdaddr_t   btAddress;
@@ -194,7 +194,7 @@ JNIEXPORT jstring JNICALL Java_org_androhid_NativeBtHid_btDeviceGetName
  * Method:    isEnabled
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_org_androhid_NativeBtHid_isEnabled
+JNIEXPORT jboolean JNICALL Java_org_chimera_NativeBtHid_isEnabled
   ( JNIEnv *env, jobject obj ){
 	if( hci_get_route(NULL)  < 0 ){
 		return JNI_FALSE;

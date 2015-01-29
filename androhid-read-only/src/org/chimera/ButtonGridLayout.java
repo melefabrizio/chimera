@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.androhid;
+package org.chimera;
 
 import android.content.Context;
 import android.util.AttributeSet;

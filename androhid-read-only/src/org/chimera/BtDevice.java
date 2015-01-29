@@ -17,7 +17,7 @@
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.androhid;
+package org.chimera;
 
 public class BtDevice {
 	public String humanReadableName;

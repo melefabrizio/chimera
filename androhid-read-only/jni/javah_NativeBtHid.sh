@@ -1,3 +1,3 @@
 #!/bin/bash
 cd bin/
-javah -jni org.androhid.NativeBtHid
+javah -jni org.chimera.NativeBtHid

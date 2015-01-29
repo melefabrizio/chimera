@@ -17,10 +17,9 @@
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.androhid;
+package org.chimera;
 
 import android.app.Activity;
-import android.app.TabActivity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -40,10 +39,14 @@ import android.widget.TabHost;
 import android.widget.Toast;
 import android.util.Log;
 
+import org.chimera.R;
+
+import java.io.Console;
+
 public class AndroHid extends Activity implements View.OnClickListener {
     /** Called when the activity is first created. */
 	public final static String TAG = "AndroHid";
-    private static final int PICK_ADDRESS = 123;
+    protected static final int PICK_ADDRESS = 123;
 
     //This is the bt mac address we associate to
 	public static String remoteHidDeviceAddress = "00:00:00:00:00:00";
@@ -179,7 +182,7 @@ public class AndroHid extends Activity implements View.OnClickListener {
 
     */
     
-    /* Setup the Player Tab Activity */
+    /* Setup the Player Tab Activity
     private void setupPlayerTab() {
     	Intent mIntent = new Intent().setClass(this, PlayerTab.class);
     	TabHost.TabSpec mSpec;
@@ -189,7 +192,7 @@ public class AndroHid extends Activity implements View.OnClickListener {
         mTabHost.addTab(mSpec);
     }
 
-    /* Setup the Video Tab Activity */
+    /* Setup the Video Tab Activity
     private void setupVideoTab() {
     	Intent mIntent = new Intent().setClass(this, VideoTab.class);
     	TabHost.TabSpec mSpec;
@@ -197,7 +200,7 @@ public class AndroHid extends Activity implements View.OnClickListener {
                 mRes.getDrawable(R.drawable.ic_tab_video))
                 .setContent(mIntent);
         mTabHost.addTab(mSpec);
-    }    
+    }    */
     
     /* Setup the Presenter Tab Activity */
     private void setupPresenterTab() {
@@ -284,13 +287,13 @@ public class AndroHid extends Activity implements View.OnClickListener {
             }
         	return true;
 
-        case R.id.PREFERENCES:
+       /*case R.id.PREFERENCES:
         	startActivity(new Intent(this, Preferences.class));
             return true;
         case R.id.INFO:
         	showCopyrightDialog();
         	return true;
-            
+         */
         }
         return false;
     }
@@ -366,8 +369,13 @@ public class AndroHid extends Activity implements View.OnClickListener {
     }
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
+        Log.d(TAG,"Risultato");
+
         if (requestCode == PICK_ADDRESS) {
+            Log.d(TAG, "Requestcode ok");
             if (resultCode == RESULT_OK) {
+                Log.d(TAG, "Requestcode ok");
+
                 connect();
             }
         }

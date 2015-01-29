@@ -17,19 +17,17 @@
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.androhid;
+package org.chimera;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.AndroidCharacter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -41,11 +39,14 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 /*
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 */
-
+import org.chimera.R;
 public class BtDevicePicker extends ListActivity {
 	ListView lvDevices;
 	
@@ -105,6 +106,10 @@ public class BtDevicePicker extends ListActivity {
 		Toast.makeText(this.getApplicationContext(), "Selected Bluetooth Device: " +
 				btDevices.get( position ).humanReadableName,
 				Toast.LENGTH_LONG).show();
+        Intent intent = new Intent();
+        setResult(AndroHid.RESULT_OK, intent);
+
+        finish();
     }
 /*    
     public void onCreateContextMenu( ContextMenu menu, View v, ContextMenuInfo menuInfo ) {
